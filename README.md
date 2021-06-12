@@ -18,7 +18,7 @@ npm install
 ## Usage
 
 ```sh
-npm run start
+expo start
 ```
 
 ## Run tests
