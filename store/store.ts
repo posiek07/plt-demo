@@ -2,26 +2,36 @@ import { Store } from 'pullstate';
 
 export const MyBasket = new Store({
   basket: [],
+  basketItems: [],
   sum: 0,
 });
 
 export const deleteFromBasket = (productId) => {
   MyBasket.update((s) => {
-    const newBasket = s;
-    const removedItemIndex = newBasket.basket.findIndex((item) => item.id === productId);
-    newBasket.basket.splice(removedItemIndex, 1);
-    newBasket.sum =
-      newBasket.basket.length > 0 ? newBasket.basket.reduce((sum, { price }) => sum + price, 0) : 0;
-    return newBasket;
+    const newStore = s;
+    const removedItemIndex = newStore.basket.findIndex((item) => item.id === productId);
+    newStore.basket.splice(removedItemIndex, 1);
+    newStore.sum = newSumBasketHandler(newStore.basket);
+    newStore.basketItems = newBasketItemSetArrayHandler(newStore.basket);
+    return newStore;
   });
 };
 
 export const addToBasket = (product) => {
   MyBasket.update((s) => {
-    const newBasket = s;
-    newBasket.basket.push(product);
-    newBasket.sum =
-      newBasket.basket.length > 0 ? newBasket.basket.reduce((sum, { price }) => sum + price, 0) : 0;
-    return newBasket;
+    const newStore = s;
+    newStore.basket.push(product);
+    newStore.sum = newSumBasketHandler(newStore.basket);
+    newStore.basketItems = newBasketItemSetArrayHandler(newStore.basket);
+    return newStore;
   });
 };
+
+const newBasketItemSetArrayHandler = (basket) =>
+  basket.filter(
+    (product, index, self) =>
+      index === self.findIndex((p) => p.id === product.id && p.name === product.name),
+  );
+
+const newSumBasketHandler = (basket) =>
+  basket.length > 0 ? basket.reduce((sum, { price }) => sum + price, 0) : 0;
