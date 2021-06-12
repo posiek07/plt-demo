@@ -6,13 +6,12 @@ import { addToBasket, deleteFromBasket } from '../store/store';
 import { MyBasket } from '../store/store';
 
 export default function BasketScreen() {
-  const store = MyBasket.useState();
+  const store = MyBasket.useState(s => s);
   const sum = store.sum
   const basketItems = store.basket
+  const basketItemsSetArray = store.basketItems
 
-  const basketItemsSet = new Set(basketItems);
-
-  const basketItemsSetArray = Array.from(basketItemsSet);
+  console.log(basketItemsSetArray)
 
   return (
     <View style={styles.container}>
