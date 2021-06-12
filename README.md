@@ -5,8 +5,6 @@
 
 > React Native App builded for PrettyLittleThings
 
-### 🏠 [Homepage](https://expo.io/@posiek07/projects/plt-demo)
-
 ### ✨ [Demo](https://expo.io/@posiek07/projects/plt-demo)
 
 ## Install
