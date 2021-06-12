@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import EditItem from '../components/EditItem';
-import { addToBasket, deleteFromBasket } from '../store/store';
+import { addToBasket, deleteFromBasket, MyBasket } from '../store/store';
 
-import { MyBasket } from '../store/store';
 
 export default function BasketScreen() {
   const store = MyBasket.useState(s => s);
@@ -11,10 +10,8 @@ export default function BasketScreen() {
   const basketItems = store.basket
   const basketItemsSetArray = store.basketItems
 
-  console.log(basketItemsSetArray)
-
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={{ flex: 1, width: '100%' }}>
         {!!basketItemsSetArray &&
           basketItemsSetArray.map((product, index) => {
@@ -33,7 +30,7 @@ export default function BasketScreen() {
         SUM: {sum.toFixed(2)}
         {'\u00A3'}
       </Text>
-    </View>
+    </ScrollView>
   );
 }
 
