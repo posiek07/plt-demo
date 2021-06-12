@@ -33,10 +33,3 @@ npm run test
 
 * Github: [@posiek07](https://github.com/posiek07)
 * LinkedIn: [@https:\/\/www.linkedin.com\/in\/daniel-smolinski-502a141ab\/](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/daniel-smolinski-502a141ab\/)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
