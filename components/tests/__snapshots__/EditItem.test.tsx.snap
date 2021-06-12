@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "column",
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    onPress={[Function]}
+    style={
+      Object {
+        "fontSize": 30,
+      }
+    }
+  >
+    +
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 30,
+      }
+    }
+  >
+    5
+  </Text>
+  <Text
+    onPress={[Function]}
+    style={
+      Object {
+        "fontSize": 30,
+      }
+    }
+  >
+    -
+  </Text>
+</View>
+`;

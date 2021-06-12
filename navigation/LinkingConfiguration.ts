@@ -12,14 +12,14 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Products: {
             screens: {
-              TabOneScreen: 'one',
+              MainCategoriesScreen: 'one',
             },
           },
-          TabTwo: {
+          Basket: {
             screens: {
-              TabTwoScreen: 'two',
+              BasketScreen: 'two',
             },
           },
         },

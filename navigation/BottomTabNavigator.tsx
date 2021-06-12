@@ -8,33 +8,30 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import MainCategoriesScreen from '../screens/MainCategoriesScreen';
+import BasketScreen from '../screens/BasketScreen';
+import { BottomTabParamList, ProductsParamList, BasketParamList } from '../types';
+import SubCategoriesScreen from '../screens/SubCategoriesScreen';
+import ProductScreen from '../screens/ProductScreen';
+import ProductsScreen from '../screens/ProductsScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
   return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+    <BottomTab.Navigator initialRouteName="Products">
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Products"
+        component={ProductsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-menu" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Basket"
+        component={BasketNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-basket" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -49,30 +46,45 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
+const ProductsStack = createStackNavigator<ProductsParamList>();
 
-function TabOneNavigator() {
+function ProductsNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+    <ProductsStack.Navigator>
+      <ProductsStack.Screen
+        name="MainCategoriesScreen"
+        component={MainCategoriesScreen}
+        options={{ headerTitle: 'Categories Menu' }}
       />
-    </TabOneStack.Navigator>
+      <ProductsStack.Screen
+        name="SubCategoriesScreen"
+        component={SubCategoriesScreen}
+        options={{ headerTitle: 'Sub Categories Menu' }}
+      />
+      <ProductsStack.Screen
+        name="ProductScreen"
+        component={ProductScreen}
+        options={{ headerTitle: 'Product Screen' }}
+      />
+      <ProductsStack.Screen
+        name="ProductsScreen"
+        component={ProductsScreen}
+        options={{ headerTitle: 'Products Screen' }}
+      />
+    </ProductsStack.Navigator>
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const BasketStack = createStackNavigator<BasketParamList>();
 
-function TabTwoNavigator() {
+function BasketNavigator() {
   return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+    <BasketStack.Navigator>
+      <BasketStack.Screen
+        name="BasketScreen"
+        component={BasketScreen}
+        options={{ headerTitle: 'Check-out' }}
       />
-    </TabTwoStack.Navigator>
+    </BasketStack.Navigator>
   );
 }

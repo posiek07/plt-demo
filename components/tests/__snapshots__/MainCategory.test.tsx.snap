@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#cccccc",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "opacity": 1,
+      "width": "95%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "bold",
+        "paddingLeft": 5,
+      }
+    }
+  >
+    NEW IN
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#cccccc",
+        "height": 70,
+        "justifyContent": "flex-start",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://cdn-media.prettylittlething.com/studio/mega-menu/desktop/12.11.20/newin.jpg",
+        }
+      }
+      style={
+        Object {
+          "backgroundColor": "#cccccc",
+          "flex": 1,
+          "height": 70,
+          "resizeMode": "contain",
+          "width": 100,
+        }
+      }
+    />
+  </View>
+</View>
+`;
